@@ -22,7 +22,7 @@ export default class AppUpdater {
   }
 }
 
-let mainWindow: BrowserWindow | null = null;
+const windows = [];
 
 if (process.env.NODE_ENV === 'production') {
   const sourceMapSupport = require('source-map-support');
@@ -54,7 +54,7 @@ const createWindow = async () => {
     await installExtensions();
   }
 
-  mainWindow = new BrowserWindow({
+  const window = new BrowserWindow({
     show: false,
     width: 1024,
     height: 728,
@@ -67,28 +67,25 @@ const createWindow = async () => {
             preload: path.join(__dirname, 'dist/renderer.prod.js')
           }
   });
+  windows.push(window);
 
-  mainWindow.loadURL(`file://${__dirname}/app.html`);
+  window.loadURL(`file://${__dirname}/app.html`);
 
   // @TODO: Use 'ready-to-show' event
   //        https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
-  mainWindow.webContents.on('did-finish-load', () => {
-    if (!mainWindow) {
+  window.webContents.on('did-finish-load', () => {
+    if (!window) {
       throw new Error('"mainWindow" is not defined');
     }
     if (process.env.START_MINIMIZED) {
-      mainWindow.minimize();
+      window.minimize();
     } else {
-      mainWindow.show();
-      mainWindow.focus();
+      window.show();
+      window.focus();
     }
   });
 
-  mainWindow.on('closed', () => {
-    mainWindow = null;
-  });
-
-  const menuBuilder = new MenuBuilder(mainWindow);
+  const menuBuilder = new MenuBuilder(window);
   menuBuilder.buildMenu();
 
   // Remove this if your app does not use auto updates
@@ -108,7 +105,10 @@ app.on('window-all-closed', () => {
   }
 });
 
-app.on('ready', createWindow);
+app.on('ready', () => {
+  createWindow();
+  createWindow();
+});
 
 app.on('activate', () => {
   // On macOS it's common to re-create a window in the app when the
