@@ -2,6 +2,27 @@ import React, {useEffect, useState} from 'react';
 import ApiService from "../../service/ApiService";
 import {StudentSessionStates} from "./HomeStudent";
 
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Paper from '@material-ui/core/Paper';
+import { makeStyles } from '@material-ui/core/styles';
+import logo from '../../repo/logo.jpg';
+import style from '../../css/style.css';
+import { createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/styles';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      // Purple and green play nicely together.
+      main: '#F49561',
+    },
+    secondary: {
+      // This is green.A700 as hex.
+      main: '#999999',
+    },
+  },
+});
+
 export default function WaitingRoom ({studentSession, onStudentSessionChanged}) {
 
   useEffect(() => {
@@ -16,8 +37,13 @@ export default function WaitingRoom ({studentSession, onStudentSessionChanged}) 
   });
 
   return (
-    <div>
-      Waiting....
-    </div>
+    <ThemeProvider theme={theme}>
+            <img src={logo} className={style.centro} />
+            <br/>
+            <Paper className={style.paper} elevation={3}>
+              <div className={style.title} ><h3>Waiting....</h3></div>
+              <CircularProgress />
+            </Paper>
+            </ThemeProvider>
   );
 }
