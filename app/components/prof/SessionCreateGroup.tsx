@@ -74,12 +74,11 @@ export default function SessionCreateGroup({session, onSessionChange}) {
               ))
             }
           </ul>
-          <div className={style.bottone}><Button onClick={startSession} variant="contained" color="primary"
-                                                 href="#contained-buttons">
-            AVVIA
-          </Button></div>
-          {/* da commentare */}
-          <button onClick={startSession}>AVVIA</button>
+          <div className={style.bottone}>
+            <Button onClick={startSession} variant="contained" color="primary">
+              AVVIA
+            </Button>
+          </div>
         </Paper>
       </ThemeProvider>
     </div>
