@@ -9,10 +9,11 @@
  * `./app/main.prod.js` using webpack. This gives us some performance wins.
  */
 import path from 'path';
-import { app, BrowserWindow } from 'electron';
-import { autoUpdater } from 'electron-updater';
+import {app, BrowserView, BrowserWindow} from 'electron';
+import {autoUpdater} from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
+import {setupIpc} from "./electron-app";
 
 export default class AppUpdater {
   constructor() {
@@ -58,18 +59,15 @@ const createWindow = async () => {
     show: false,
     width: 1024,
     height: 728,
-    webPreferences:
-      process.env.NODE_ENV === 'development' || process.env.E2E_BUILD === 'true'
-        ? {
-            nodeIntegration: true
-          }
-        : {
-            preload: path.join(__dirname, 'dist/renderer.prod.js')
-          }
+    myId: windows.length,
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
   windows.push(window);
 
   window.loadURL(`file://${__dirname}/app.html`);
+
 
   // @TODO: Use 'ready-to-show' event
   //        https://github.com/electron/electron/blob/master/docs/api/browser-window.md#using-ready-to-show-event
@@ -108,6 +106,8 @@ app.on('window-all-closed', () => {
 app.on('ready', () => {
   createWindow();
   createWindow();
+  createWindow();
+  setupIpc(windows);
 });
 
 app.on('activate', () => {

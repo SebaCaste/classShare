@@ -12,18 +12,22 @@ io.sockets.on('connection', (socket) => {
   });
 
 
-  socket.on('iceOffer', ({hostId, offer}) => {
-    io.to(hostId).emit('iceOffer', {
+
+  socket.on('iceOfferFromGuest', ({hostId, offer}) => {
+    console.log(`forwarding ice offer to ${hostId}`);
+    io.to(hostId).emit('iceOfferFromGuest', {
       guestId: socket.id,
       offer
     })
   });
 
-  socket.on('iceAnswer', ({guestId, answer}) =>{
-    io.to(guestId).emit('iceAnswer', answer);
+  socket.on('iceAnswerFromHost', ({guestId, answer}) =>{
+    console.log(`forwarding ice answer to ${guestId}`);
+    io.to(guestId).emit('iceAnswerFromHost', answer);
   });
 
   socket.on('iceCandidate', ({to, candidate}) => {
+    console.log(`forwarding ice candidate to ${to}`);
     io.to(to).emit('iceCandidate', {
       from: socket.id,
       candidate
@@ -60,11 +64,12 @@ const onNewStudent = (socket) => {
       studentId: socket.id
     });
 
+    socket.on('input', msg => {
+      socket.to(roomId).emit('input', msg);
+    });
+
     console.log(`student joined session ${sessionId}`);
   });
-
-
-
 }
 
 /**

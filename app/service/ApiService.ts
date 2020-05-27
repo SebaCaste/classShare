@@ -1,5 +1,7 @@
 import io from 'socket.io-client';
 import {v4 as uuidv4} from 'uuid';
+import {ipcRenderer} from 'electron';
+import StreamingService from './StreamingService';
 
 const SERVER_URL = 'http://4b496a39.ngrok.io';
 
@@ -8,9 +10,11 @@ class ApiService {
   socket;
   studentsList = [];
   _callbacks = {};
+  _group = null;
 
   constructor() {
     this.socket = io(SERVER_URL);
+    StreamingService.setSocket(this.socket);
   }
 
   generateId() {
@@ -30,7 +34,17 @@ class ApiService {
 
   initAsStudent() {
     this.socket.emit('role', 'student');
-    this.socket.on('startSession', (startMsg) => {
+    this.socket.on('startSession', async (startMsg) => {
+      this._group = findMyGroup(startMsg.groups, this.socket.id);
+
+      if(this.isHost()) {
+        console.log('setting up as host');
+        await StreamingService.setupAsHost(this._group.callUrl, startMsg.simulatorUrl);
+      } else {
+        console.log('setting up as guest');
+        await StreamingService.setupAsGuest(this._group.students[0], this._group.callUrl);
+      }
+
       this._callbacks['startSession'](startMsg);
     });
   }
@@ -86,13 +100,26 @@ class ApiService {
   addCallToGroups (groups) {
     for (let group of groups) {
       console.log(group)
-      group.callUrl = "https://meet.google.com/trm-rtvx-ivy";
+      group.callUrl = "https://meet.jit.si/maniinpastademo";
     }
     return groups;
   }
 
   // STREAMING
 
+  isHost() {
+    return this._group.students.map(s => s.studentId).indexOf(this.socket.id) == 0;
+  }
+
+}
+
+function findMyGroup(groups, id) {
+  for (let group of groups) {
+    if (group.students.map(s => s.studentId).indexOf(id) >= 0) {
+      return group;
+    }
+  }
+  throw new Error('group not found');
 }
 
 const instance = new ApiService();

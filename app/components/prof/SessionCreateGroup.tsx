@@ -20,7 +20,7 @@ export default function SessionCreateGroup ({session, onSessionChange}) {
 
   async function startSession () {
     setIsCreatingSession(true);
-    await ApiService.startSession(getGroups(), 'https://www.google.com'); // TODO: groups
+    await ApiService.startSession(getGroups(), 'https://www.tinkercad.com/dashboard'); // TODO: groups
     setIsCreatingSession(false);
     onSessionChange({
       ...session,
@@ -43,7 +43,7 @@ export default function SessionCreateGroup ({session, onSessionChange}) {
       <ul>
         {
           studentsList.map(student => (
-            <li>{student.fullname}</li>
+            <li key={student.studentId}>{student.fullname}</li>
           ))
         }
       </ul>
