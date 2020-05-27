@@ -1,7 +1,7 @@
 import io from 'socket.io-client';
 import {v4 as uuidv4} from 'uuid';
 
-const SERVER_URL = 'http://localhost:2222';
+const SERVER_URL = 'http://4b496a39.ngrok.io';
 
 class ApiService {
 
