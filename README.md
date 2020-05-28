@@ -11,9 +11,9 @@ della Milano Digital Week.
 
 Ci siamo accorti che, durante la pandemia, le scuole e le università hanno dovuto interrompere molte attività di laboratorio.
 Infatti, anche se esistono simulatori online per esperimenti di fisica, chimica e molto altro, quasi tutti sono pensati
-per essere utilizzato da soli.
+per essere utilizzati da soli.
 
-La nostra idea aggiunge a questi siti web un sistema di collaborazione, affiancato da vdeochiamata. Questo permette
+La nostra idea aggiunge a questi siti web un sistema di collaborazione, affiancato da videochiamata. Questo permette
 a professori di fare lezioni teoriche introduttive, e successivamente di dividere gli studenti in gruppi che potranno
 lavorare in contemporanea, attraverso uno spazio di lavoro condiviso.
 
