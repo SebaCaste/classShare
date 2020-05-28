@@ -60,8 +60,12 @@ export default function SessionCreator({session, onSessionChange}) {
         <ThemeProvider theme={theme}>
           <img src={logo} className={style.centro}/>
           <br/>
-          <Paper className={style.paper} elevation={3}>
-            <div className={style.title}><h3>Codice sessione:<br/>{session.id}</h3></div>
+          <Paper className={style.paper} elevation={3} style={{borderRadius: '20px'}}>
+            <div className={style.title}>
+              <h3>Codice sessione:</h3>
+              <br/><br/>
+              <h3 className={style.codice}>{session.id}</h3>
+            </div>
 
             <br/>
             <br/>
@@ -82,8 +86,8 @@ export default function SessionCreator({session, onSessionChange}) {
         <ThemeProvider theme={theme}>
           <img src={logo} className={style.centro}/>
           <br/>
-          <Paper className={style.paper} elevation={3}>
-            <div className={style.title}><h3>Avvia una nuova lezione</h3></div>
+          <Paper className={style.paper} elevation={3} style={{borderRadius: '20px'}}>
+            <div className={style.title}><h3>Accedi a una sessione</h3></div>
             <TextField className={style.input}
                        id="standard-multiline-flexible"
                        label="Nome lezione"
@@ -92,6 +96,7 @@ export default function SessionCreator({session, onSessionChange}) {
                        value={sessionName}
                        onChange={handleInputChange(setSessionName)}
             />
+            <br/>
             <TextField className={style.input}
                        id="standard-multiline-flexible"
                        label="link al laboratorio"

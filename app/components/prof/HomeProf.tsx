@@ -6,6 +6,7 @@ import {handleInputChange} from "../utils";
 import SessionCreator from "./SessionCreator";
 import SessionCreateGroup from "./SessionCreateGroup";
 import ProfSession from "./ProfSession";
+import style from '../../css/style.css';
 
 
 export const SessionStates = {

@@ -65,7 +65,7 @@ export default function SessionCreateGroup({session, onSessionChange}) {
       <ThemeProvider theme={theme}>
         <img src={logo} className={style.centro}/>
         <br/>
-        <Paper className={style.paper} elevation={3}>
+        <Paper className={style.paper} elevation={3}  style={{borderRadius: '20px'}}>
           <div className={style.title}><h3>LISTA STUDENTI</h3></div>
           <ul>
             {

@@ -1,37 +1,64 @@
-.title{
-    text-align: center;
+.title {
+  text-align: center;
 }
-.subtitle{
-    text-align: center;
-    color: black;
+
+.subtitle {
+  text-align: center;
+  color: black;
 }
-.container{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
-.input{
-    width: 80%;
+
+.input {
+  width: 80%;
 }
-.paper{
-    align-items: center;
-    display: flex;
-    min-width: 400px;
-    width: 30%;
-    flex-direction: column;
-    padding: 10px;
-    display:block;
-    margin:0px auto;
-    text-align:center;
+
+.paper {
+  align-items: center;
+  display: flex;
+  min-width: 400px;
+  width: 30%;
+  flex-direction: column;
+  padding: 10px;
+
+  /* display: block; */
+  margin: 0 auto;
+  text-align: center;
+  min-height: 20em;
+  max-height: 20em;
 }
-.bottone{
-    justify-content: flex-end;
-    padding: 10;
-    /* margin-right: 5px; */
-    /* margin-bottom: 10px; */
+
+.MuiPaper-rounded {
+  border-radius: 20px;
 }
+
+.bottone {
+  justify-content: flex-end;
+  padding: 10px;
+  color: black;
+
+  /* margin-right: 5px; */
+
+  /* margin-bottom: 10px; */
+}
+
+.codice {
+  padding: 0.5em;
+  background-color: white;
+  border: 1px solid gray;
+}
+
+.bottoneInner {
+  min-width: 10em;
+  max-width: 10em;
+}
+
 .centro {
-    display:block;
-    margin:0px auto;
-    text-align:center;
-    }
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
