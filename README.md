@@ -5,7 +5,8 @@
 Mani in pasta è il progetto che abbiamo realizzato in occasione dell'Hackathon organizzato da OpenFiber in occasione
 della Milano Digital Week.
 
-![demo](demo.gif)
+
+[![Demo](demo-preview.png)](https://www.youtube.com/watch?v=Uayc9zmv7ko)
 
 ## L'idea
 
