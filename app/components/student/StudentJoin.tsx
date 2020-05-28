@@ -11,19 +11,7 @@ import logo from '../../repo/logo.jpg';
 import style from '../../css/style.css';
 import {createMuiTheme} from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
-
-const theme = createMuiTheme({
-  palette: {
-    primary: {
-      // Purple and green play nicely together.
-      main: '#F49561',
-    },
-    secondary: {
-      // This is green.A700 as hex.
-      main: '#999999',
-    },
-  },
-});
+import {theme} from "../theme";
 
 export default function StudentJoin({studentSession, onStudentSessionChanged}) {
 

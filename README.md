@@ -9,7 +9,7 @@ Ci siamo accorti che, durante la pandemia, le scuole e le università hanno dovu
 Infatti, anche se esistono simulatori online per esperimenti di fisica, chimica e molto altro, quasi tutti sono pensati
 per essere utilizzato da soli.
 
-La nostra idea aggiunge un sistema di collaborazione, affiancato da vdeochiamata, a questi siti web. Questo permette
+La nostra idea aggiunge a questi siti web un sistema di collaborazione, affiancato da vdeochiamata. Questo permette
 a professori di fare lezioni teoriche introduttive, e successivamente di dividere gli studenti in gruppi che potranno
 lavorare in contemporanea, attraverso uno spazio di lavoro condiviso.
 
@@ -26,3 +26,5 @@ Gli studenti accedono ad una sessione ed entrano in una sala di attesa, fino a q
 Una volta avviata la lezione, i pc dei ragazzi caricano una pagina web dedicata ad una videochiamata di gruppo, e un pc per gruppo (chiamato host) apre anche la pagina del simulatore.
 I rimanenti pc del gruppo iniziano una connessione WebRTC verso l'host per ricevere in streaming la condivisione dello schermo della finestra contenente il simulatore.
 Eventi del mouse e della tastiera vengono poi inoltrati al pc dell'host.
+
+

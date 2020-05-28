@@ -47,10 +47,12 @@ function openMeet(window, url) {
 }
 
 function resizeForHost(window){
-  const oldBounds = window.getBounds();
+  //const oldBounds = window.getBounds();
   window.setBounds({
-    ...oldBounds,
-    width: oldBounds.width / 4
+    x:200,
+    y: 100,
+    width: 300,
+    height: 600
   });
 }
 
