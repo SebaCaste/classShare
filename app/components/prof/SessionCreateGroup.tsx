@@ -55,7 +55,7 @@ export default function SessionCreateGroup({session, onSessionChange}) {
           <ul>
             {
               studentsList.map(student => (
-                <li>{student.fullname}</li>
+                <li key={student.fullname}>{student.fullname}</li>
               ))
             }
           </ul>

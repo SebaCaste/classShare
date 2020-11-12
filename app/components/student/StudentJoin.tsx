@@ -52,7 +52,7 @@ export default function StudentJoin({studentSession, onStudentSessionChanged}) {
         <div className={style.title}><h3>Inserisci codice sessione</h3></div>
         <TextField
           id="standard-multiline-flexible"
-          label="URL"
+          label="Code"
           multiline
           rowsMax={4}
           value={sessionId}
