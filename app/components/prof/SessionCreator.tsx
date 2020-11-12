@@ -16,11 +16,10 @@ import {theme} from "../theme";
 export default function SessionCreator({session, onSessionChange}) {
 
   const [sessionName, setSessionName] = useState('Elettronica');
-  const [simulatorUrl, setSimulatorUrl] = useState('https://thinkercad.com');
+  const [simulatorUrl, setSimulatorUrl] = useState('https://jspaint.app');//useState('https://thinkercad.com');
 
   async function createSession() {
     const id = await ApiService.createSessionAsProf(sessionName);
-    console.log(id);
     onSessionChange({
       ...session,
       simulatorUrl,

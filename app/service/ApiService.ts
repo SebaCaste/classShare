@@ -99,8 +99,7 @@ class ApiService {
 
   addCallToGroups (groups) {
     for (let group of groups) {
-      console.log(group)
-      group.callUrl = "https://meet.jit.si/maniinpastademo";
+      group.callUrl = "https://meet.jit.si/squiddy";
     }
     return groups;
   }
