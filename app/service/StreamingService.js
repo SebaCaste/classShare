@@ -1,26 +1,26 @@
 import {desktopCapturer, ipcRenderer} from 'electron';
 
 const webRtcConfig = {
-  'iceServers': [{
-    urls: [
-      'stun:stun.l.google.com:19302',
-      'stun:stun1.l.google.com:19302',
-      'stun:stun2.l.google.com:19302',
-      'stun:stun.l.google.com:19302?transport=udp',
-
-
-      {
-        url: 'turn:relay.backups.cz',
-        credential: 'webrtc',
-        username: 'webrtc'
-      },
-      {
-        url: 'turn:relay.backups.cz?transport=tcp',
-        credential: 'webrtc',
-        username: 'webrtc'
-      }
-    ]
-  }]
+  'iceServers': [
+    {
+      urls: [
+        'stun:stun.l.google.com:19302',
+        'stun:stun1.l.google.com:19302',
+        'stun:stun2.l.google.com:19302',
+        'stun:stun.l.google.com:19302?transport=udp',
+      ]
+    },
+    {
+      url: 'turn:relay.backups.cz',
+      credential: 'webrtc',
+      username: 'webrtc'
+    },
+    {
+      url: 'turn:relay.backups.cz?transport=tcp',
+      credential: 'webrtc',
+      username: 'webrtc'
+    },
+  ]
 };
 
 class StreamingService {
