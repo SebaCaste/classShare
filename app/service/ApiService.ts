@@ -58,7 +58,7 @@ class ApiService {
    * @returns {Promise<string>}
    */
   async createSessionAsProf(sessionName) {
-    const sessionId = uuidv4();
+    const sessionId = uuidv4().substr(0, 4);
     this.socket.emit('createSession', {
       sessionName,
       sessionId
