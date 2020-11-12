@@ -11,15 +11,10 @@ const webRtcConfig = {
       ]
     },
     {
-      url: 'turn:relay.backups.cz',
+      url: 'turn:cloud.simonedegiacomi.dev:3478',
       credential: 'webrtc',
       username: 'webrtc'
-    },
-    {
-      url: 'turn:relay.backups.cz?transport=tcp',
-      credential: 'webrtc',
-      username: 'webrtc'
-    },
+    }
   ]
 };
 
