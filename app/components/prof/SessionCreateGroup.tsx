@@ -26,9 +26,9 @@ export default function SessionCreateGroup({session, onSessionChange}) {
     }
   });
 
-  async function startSession() {
+  async function startSession(simulatorUrl) {
     setIsCreatingSession(true);
-    await ApiService.startSession(getGroups(), 'https://www.tinkercad.com/dashboard'); // TODO: groups
+    await ApiService.startSession(getGroups(), simulatorUrl);
     setIsCreatingSession(false);
     onSessionChange({
       ...session,
@@ -60,7 +60,7 @@ export default function SessionCreateGroup({session, onSessionChange}) {
             }
           </ul>
           <div className={style.bottone}>
-            <Button onClick={startSession} variant="contained" color="primary">
+            <Button onClick={() => startSession(session.simulatorUrl)} variant="contained" color="primary">
               AVVIA
             </Button>
           </div>
