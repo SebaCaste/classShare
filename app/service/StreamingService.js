@@ -11,9 +11,12 @@ const webRtcConfig = {
     //   ]
     // },
     {
-      urls: ['turn:numb.viagenie.ca:3478','stun:numb.viagenie.ca'],
-      credential: 'simonedegiacomi97@gmail.com',
-      username: process.env.TURN_PASSWORD
+      urls: [
+        'turn:numb.viagenie.ca:3478',
+        'stun:numb.viagenie.ca'
+      ],
+      username: 'simonedegiacomi97@gmail.com',
+      credential: process.env.TURN_PASSWORD
     }
   ]
 };
