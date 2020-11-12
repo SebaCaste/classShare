@@ -5,7 +5,7 @@ import ApiService from '../service/ApiService';
 
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
-import logo from '../repo/logo.jpg';
+import logo from '../../logo.png';
 import style from '../css/style.css';
 import {createMuiTheme} from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
@@ -27,7 +27,7 @@ export default function Home() {
   return (
 
     <ThemeProvider theme={theme}>
-      <img src={logo} className={style.centro}/>
+      <img src={logo} className={style.centro} width="80%"/>
       <br/>
       <Paper className={style.paper} elevation={3} style={{borderRadius: '20px'}}>
         <div className={style.title}><h3>Accedi ad una sessione</h3></div>
