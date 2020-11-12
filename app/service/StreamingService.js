@@ -8,7 +8,17 @@ const webRtcConfig = {
       'stun:stun2.l.google.com:19302',
       'stun:stun.l.google.com:19302?transport=udp',
 
-      'turn:relay.backups.cz'
+
+      {
+        url: 'turn:relay.backups.cz',
+        credential: 'webrtc',
+        username: 'webrtc'
+      },
+      {
+        url: 'turn:relay.backups.cz?transport=tcp',
+        credential: 'webrtc',
+        username: 'webrtc'
+      }
     ]
   }]
 };
@@ -123,7 +133,7 @@ class StreamingService {
     });
   }
 
-  async setupAsGuest(host, callUrl){
+  async setupAsGuest(host, callUrl) {
     ipcRenderer.send('guest_sessionStarted', callUrl);
     await this.connectToHost(host);
   }
@@ -195,7 +205,7 @@ class StreamingService {
     this.socket.emit('input', input);
   }
 
-  handleIncomingInputs () {
+  handleIncomingInputs() {
     this.socket.on('input', msg => {
       ipcRenderer.send('host_inputFromGuest', msg)
     });
