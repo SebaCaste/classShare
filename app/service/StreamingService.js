@@ -11,7 +11,7 @@ const webRtcConfig = {
       ]
     },
     {
-      url: 'turn:numb.viagenie.ca',
+      url: 'turn:numb.viagenie.ca:3478',
       credential: 'simonedegiacomi97@gmail.com',
       username: process.env.TURN_PASSWORD
     }
@@ -79,6 +79,7 @@ class StreamingService {
 
     // handle incoming offers from guests
     this.socket.on('iceOfferFromGuest', async ({guestId, offer}) => {
+      console.log('using webrtc config', webRtcConfig);
       const peerConnection = peerConnections[guestId] = new RTCPeerConnection(webRtcConfig);
       await peerConnection.setRemoteDescription(new RTCSessionDescription(offer));
       console.log('got offer from guest');
