@@ -3,7 +3,7 @@ import {v4 as uuidv4} from 'uuid';
 import {ipcRenderer} from 'electron';
 import StreamingService from './StreamingService';
 
-const SERVER_URL = 'http://4b496a39.ngrok.io';
+const SERVER_URL = process.env.SERVER_URL || 'http://746ae0afe13e.ngrok.io';
 
 class ApiService {
 
