@@ -11,9 +11,9 @@ const webRtcConfig = {
       ]
     },
     {
-      url: 'turn:cloud.simonedegiacomi.dev:3478',
-      credential: 'webrtc',
-      username: 'webrtc'
+      url: 'turn:numb.viagenie.ca',
+      credential: 'simonedegiacomi97@gmail.com',
+      username: process.env.TURN_PASSWORD
     }
   ]
 };
