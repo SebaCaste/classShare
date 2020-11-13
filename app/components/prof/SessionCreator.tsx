@@ -71,7 +71,7 @@ export default function SessionCreator({session, onSessionChange}) {
     return (
       <Fragment>
         <ThemeProvider theme={theme}>
-          <img src={logo} className={style.centro}/>
+          <img src={logo} className={style.centro} width="80%"/>
           <br/>
           <Paper className={style.paper} elevation={3} style={{borderRadius: '20px'}}>
             <div className={style.title}><h3>Accedi a una sessione</h3></div>
