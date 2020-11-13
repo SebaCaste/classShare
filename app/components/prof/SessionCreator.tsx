@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import {makeStyles} from '@material-ui/core/styles';
-import logo from '../../repo/logo.jpg';
+import logo from '../../../logo.png';
 import style from '../../css/style.css';
 import {createMuiTheme} from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
@@ -45,11 +45,11 @@ export default function SessionCreator({session, onSessionChange}) {
     return (
       <Fragment>
         <ThemeProvider theme={theme}>
-          <img src={logo} className={style.centro}/>
+          <img src={logo} className={style.centro} width="80%"/>
           <br/>
           <Paper className={style.paper} elevation={3} style={{borderRadius: '20px'}}>
             <div className={style.title}>
-              <h3>Codice sessione:</h3>
+              <h3>Session code:</h3>
               <br/><br/>
               <h3 className={style.codice}>{session.id}</h3>
             </div>
@@ -58,7 +58,7 @@ export default function SessionCreator({session, onSessionChange}) {
             <br/>
             <div className={style.bottone}>
               <Button onClick={openCreateGroups} variant="contained" color="primary">
-                Vai a creazione gruppi
+                Start creating groups
               </Button>
             </div>
           </Paper>
@@ -97,7 +97,7 @@ export default function SessionCreator({session, onSessionChange}) {
 
             <div className={style.bottone}>
               <Button onClick={createSession} variant="contained" color="primary">
-                Crea Sessione
+                Start session
               </Button>
             </div>
           </Paper>

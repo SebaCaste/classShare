@@ -105,7 +105,7 @@ app.on('window-all-closed', () => {
 
 app.on('ready', () => {
   createWindow();
-  createWindow();
+  //createWindow();
   //createWindow();
   setupIpc(windows);
 });

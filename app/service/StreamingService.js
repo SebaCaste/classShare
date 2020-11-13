@@ -4,24 +4,61 @@ const webRtcConfig = {
   'iceServers': [
     {
       urls: [
-        'turn:51.77.213.121',
-        'stun:51.77.213.121'
+        'stun:cloud.simonedegiacomi.dev:3478?transport=udp',
+        'turn:cloud.simonedegiacomi.dev:3478?transport=udp'
       ],
-      username: 'anyanyany',
-      credential: 'anyanyany'
-    },
-    {
-      urls: [
-        'turn:numb.viagenie.ca:3478',
-        'stun:numb.viagenie.ca'
-      ],
-      username: 'simonedegiacomi97@gmail.com',
-      credential: process.env.TURN_PASSWORD,
-      credentialType: 'password'
+      username: 'user',
+      credential: 'pass'
     }
   ]
 };
 console.log(webRtcConfig)
+window.webRtcConfig = webRtcConfig;
+
+
+const checkTURNServer = (turnConfig, timeout = 15000) => {
+  console.log('checkTURNServer turnConfig', turnConfig);
+  return new Promise(async (resolve, reject) => {
+    const pc = new RTCPeerConnection({iceServers: [turnConfig]});
+    let promiseResolved = false;
+    // Stop waiting after X milliseconds and display the result
+    setTimeout(() => {
+      if (promiseResolved)
+        return;
+      promiseResolved = true;
+      resolve(false);
+    }, timeout);
+    // Create a bogus data channel
+    pc.createDataChannel('');
+    // Listen for candidates
+    pc.onicecandidate = ice => {
+      if (promiseResolved || ice === null || ice.candidate === null)
+        return;
+      console.log('Got ice candidate', ice.candidate);
+      if (ice.candidate.type === 'relay') {
+        promiseResolved = true;
+        resolve(true);
+      }
+    };
+    // Create offer and set local description
+    const offer = await pc.createOffer();
+    await pc.setLocalDescription(offer);
+  });
+};
+window.checkTURNServer = checkTURNServer;
+
+window.doCheck = () => {
+  console.log('checking if TURN works...');
+  checkTURNServer(webRtcConfig.iceServers[0])
+    .then(active => {
+      if (active) {
+        console.log('it works!');
+      } else {
+        console.log('TURN not working...');
+      }
+    })
+    .catch(console.error);
+};
 
 class StreamingService {
 

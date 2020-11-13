@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Paper from '@material-ui/core/Paper';
 import {makeStyles} from '@material-ui/core/styles';
-import logo from '../../repo/logo.jpg';
+import logo from '../../../logo.png';
 import style from '../../css/style.css';
 import {createMuiTheme} from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
@@ -31,7 +31,7 @@ export default function StudentJoin({studentSession, onStudentSessionChanged}) {
 
   return (
     <ThemeProvider theme={theme}>
-      <img src={logo} className={style.centro}/>
+      <img src={logo} className={style.centro} width="80%"/>
       <br/>
       <Paper className={style.paper} elevation={3}  style={{borderRadius: '20px'}}>
 
@@ -64,7 +64,7 @@ export default function StudentJoin({studentSession, onStudentSessionChanged}) {
         <br/>
         <div className={style.bottone}>
           <Button onClick={joinSession} variant="contained" color="primary">
-            Entra
+            Join
           </Button>
         </div>
       </Paper>

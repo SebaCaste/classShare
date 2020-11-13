@@ -5,7 +5,7 @@ import {StudentSessionStates} from "./HomeStudent";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Paper from '@material-ui/core/Paper';
 import { makeStyles } from '@material-ui/core/styles';
-import logo from '../../repo/logo.jpg';
+import logo from '../../../logo.png';
 import style from '../../css/style.css';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
@@ -26,7 +26,7 @@ export default function WaitingRoom ({studentSession, onStudentSessionChanged}) 
 
   return (
     <ThemeProvider theme={theme}>
-            <img src={logo} className={style.centro} />
+            <img src={logo} className={style.centro} width="80%"/>
             <br/>
             <Paper className={style.paper} elevation={3}>
               <div className={style.title} ><h3>Waiting....</h3></div>

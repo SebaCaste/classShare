@@ -5,7 +5,7 @@ import {SessionStates} from "./HomeProf";
 
 import Button from '@material-ui/core/Button';
 import Paper from '@material-ui/core/Paper';
-import logo from '../../repo/logo.jpg';
+import logo from '../../../logo.png';
 import style from '../../css/style.css';
 import {ThemeProvider} from '@material-ui/styles';
 import {theme} from "../theme";
@@ -48,10 +48,10 @@ export default function SessionCreateGroup({session, onSessionChange}) {
   return (
     <div className={style.container}>
       <ThemeProvider theme={theme}>
-        <img src={logo} className={style.centro}/>
+        <img src={logo} className={style.centro} width="80%"/>
         <br/>
         <Paper className={style.paper} elevation={3}  style={{borderRadius: '20px'}}>
-          <div className={style.title}><h3>LISTA STUDENTI</h3></div>
+          <div className={style.title}><h3>Students list</h3></div>
           <ul>
             {
               studentsList.map(student => (
@@ -61,7 +61,7 @@ export default function SessionCreateGroup({session, onSessionChange}) {
           </ul>
           <div className={style.bottone}>
             <Button onClick={() => startSession(session.simulatorUrl)} variant="contained" color="primary">
-              AVVIA
+              Start
             </Button>
           </div>
         </Paper>
