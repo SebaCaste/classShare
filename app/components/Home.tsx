@@ -30,18 +30,18 @@ export default function Home() {
       <img src={logo} className={style.centro} width="80%"/>
       <br/>
       <Paper className={style.paper} elevation={3} style={{borderRadius: '20px'}}>
-        <div className={style.title}><h3>Accedi ad una sessione</h3></div>
+        <div className={style.title}><h3>Join a learning session</h3></div>
         <Link to={routes.HOME_PROF} onClick={() => ApiService.initAsProf()} style={{opacity: 1}}>
           <div className={style.bottone}>
             <Button className={style.bottoneInner} variant="contained" color="primary" style={{color: 'black', width: '10em'}}>
-              Professore
+              Teacher
             </Button></div>
         </Link>
         <br/>
         <Link to={routes.HOME_STUDENT} onClick={() => ApiService.initAsStudent()} style={{opacity: 1}}>
           <div className={style.bottone}>
             <Button className={style.bottoneInner} variant="contained" color="primary" style={{color: 'black', width: '10em'}}>
-              Studente
+              Student
             </Button>
           </div>
         </Link>
