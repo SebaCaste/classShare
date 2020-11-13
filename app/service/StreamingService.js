@@ -7,8 +7,8 @@ const webRtcConfig = {
         'turn:51.77.213.121',
         'stun:51.77.213.121'
       ],
-      username: '',
-      credential: ''
+      username: 'anyanyany',
+      credential: 'anyanyany'
     },
     {
       urls: [
@@ -21,6 +21,7 @@ const webRtcConfig = {
     }
   ]
 };
+console.log(webRtcConfig)
 
 class StreamingService {
 
@@ -126,7 +127,7 @@ class StreamingService {
     });
 
     // handle incoming ice candidates from guests
-    this.socket.on('iceCandidate', async (from, candidate) => {
+    this.socket.on('iceCandidate', async ({from, candidate}) => {
       console.log(`got ice candidate from guest ${from}`);
       const peerConnection = peerConnections[from];
       await peerConnection.addIceCandidate(candidate);
