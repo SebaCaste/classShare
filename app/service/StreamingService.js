@@ -2,21 +2,22 @@ import {desktopCapturer, ipcRenderer} from 'electron';
 
 const webRtcConfig = {
   'iceServers': [
-    // {
-    //   urls: [
-    //     'stun:stun.l.google.com:19302',
-    //     'stun:stun1.l.google.com:19302',
-    //     'stun:stun2.l.google.com:19302',
-    //     'stun:stun.l.google.com:19302?transport=udp',
-    //   ]
-    // },
+    {
+      urls: [
+        'turn:51.77.213.121',
+        'stun:51.77.213.121'
+      ],
+      username: '',
+      credential: ''
+    },
     {
       urls: [
         'turn:numb.viagenie.ca:3478',
         'stun:numb.viagenie.ca'
       ],
       username: 'simonedegiacomi97@gmail.com',
-      credential: process.env.TURN_PASSWORD
+      credential: process.env.TURN_PASSWORD,
+      credentialType: 'password'
     }
   ]
 };
