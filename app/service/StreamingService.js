@@ -4,11 +4,14 @@ const webRtcConfig = {
   'iceServers': [
     {
       urls: [
-        'stun:cloud.simonedegiacomi.dev:3478?transport=udp',
-        'turn:cloud.simonedegiacomi.dev:3478?transport=udp'
+        'stun:stun.nextcloud.com:443'
+      ]
+    }
+    {
+      urls: [
+        'stun:cloud.simonedegiacomi.dev:3478?transport=udp'
       ],
-      username: 'user',
-      credential: 'pass'
+      credential: '<put key here>'
     }
   ]
 };

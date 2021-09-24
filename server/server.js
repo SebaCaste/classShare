@@ -1,8 +1,9 @@
 const io = require('socket.io')(2222);
+console.log('running')
 
 
 io.sockets.on('connection', (socket) => {
-
+  console.log('got connection')
   socket.once('role', (msg) => {
     if (msg === 'prof') {
       onNewProf(socket);
@@ -10,8 +11,6 @@ io.sockets.on('connection', (socket) => {
       onNewStudent(socket);
     }
   });
-
-
 
   socket.on('iceOfferFromGuest', ({hostId, offer}) => {
     console.log(`forwarding ice offer to ${hostId}`);

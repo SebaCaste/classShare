@@ -74,7 +74,7 @@ export default function SessionCreator({session, onSessionChange}) {
           <img src={logo} className={style.centro} width="80%"/>
           <br/>
           <Paper className={style.paper} elevation={3} style={{borderRadius: '20px'}}>
-            <div className={style.title}><h3>Accedi a una sessione</h3></div>
+            <div className={style.title}><h3>Create a new session</h3></div>
             <TextField className={style.input}
                        id="standard-multiline-flexible"
                        label="Nome lezione"
